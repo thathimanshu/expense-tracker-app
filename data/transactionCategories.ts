@@ -1,0 +1,17 @@
+export const transactionCategories = [
+  'Food',
+  'Transportation',
+  'Housing',
+  'Utilities',
+  'Entertainment',
+  'Healthcare',
+  'Education',
+  'Shopping',
+  'Personal Care',
+  'Gifts',
+  'Investments',
+  'Salary',
+  'Freelance',
+  'Dividends',
+  'Rental Income',
+];

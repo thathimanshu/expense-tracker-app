@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import { Text, Card, useTheme, Button } from 'react-native-paper';
-import { useTransactions } from '../context/TransactionContext';
-import { Ionicons } from '@expo/vector-icons';
-import Animated, { FadeInUp } from 'react-native-reanimated';
+import React, { useEffect } from "react";
+import { View, StyleSheet, ScrollView, TextInput } from "react-native";
+import { Text, Card, useTheme, Button } from "react-native-paper";
+import { useTransactions } from "../context/TransactionContext";
+import { Ionicons } from "@expo/vector-icons";
+import Animated, { FadeInUp } from "react-native-reanimated";
 
-import { router } from 'expo-router';
-import { TransactionItem } from '../components/TransactionItem';
+import { router } from "expo-router";
+import { TransactionItem } from "../components/TransactionItem";
+import AddInputField from "@/components/AddInputField";
 
 export default function HomeScreen(): JSX.Element {
   const { transactions } = useTransactions();
   const theme = useTheme();
 
   const totalIncome = transactions
-    .filter((t) => t.type === 'income')
+    .filter((t) => t.type === "income")
     .reduce((sum, t) => sum + t.amount, 0);
 
   const totalExpenses = transactions
-    .filter((t) => t.type === 'expense')
+    .filter((t) => t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
 
   const balance = totalIncome - totalExpenses;
@@ -28,6 +29,7 @@ export default function HomeScreen(): JSX.Element {
 
   return (
     <ScrollView style={styles.container}>
+     <AddInputField />
       <Animated.View entering={FadeInUp.delay(200).duration(1000)}>
         <Card style={styles.balanceCard}>
           <Card.Content>
@@ -97,7 +99,7 @@ export default function HomeScreen(): JSX.Element {
             ))}
           </Card.Content>
           <Card.Actions>
-            <Button onPress={() => router.push('/history')}>View All</Button>
+            <Button onPress={() => router.push("/history")}>View All</Button>
           </Card.Actions>
         </Card>
       </Animated.View>
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
   balanceCard: {
     marginBottom: 16,
@@ -117,15 +119,15 @@ const styles = StyleSheet.create({
   },
   balanceLabel: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
   },
   balanceAmount: {
     fontSize: 36,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   summaryContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 16,
   },
   summaryCard: {
@@ -137,11 +139,11 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 14,
-    color: '#666',
+    color: "#666",
   },
   summaryAmount: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   recentTransactionsCard: {
     marginBottom: 16,

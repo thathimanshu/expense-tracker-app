@@ -47,7 +47,6 @@ export const HistoryItem: React.FC<HistoryItemProps> = ({ item, index }) => {
               {new Date(item.date).toLocaleDateString()}
             </Text>
           </View>
-          <Text style={styles.syncStatus}>{item.synced ? '✅' : '🔄'}</Text>
         </View>
       )}
     />
@@ -75,9 +74,5 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 12,
     color: '#666',
-  },
-  syncStatus: {
-    fontSize: 18,
-    marginLeft: 8,
   },
 });

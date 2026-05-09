@@ -102,10 +102,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666',
   },
-  syncStatus: {
-    fontSize: 18,
-    marginLeft: 8,
-  },
   rowContainer: {
     flexDirection: 'row',
     gap: 2,
